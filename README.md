@@ -8,7 +8,7 @@ CloudflareSpeedTest 推送「每5分钟自选优选 IP」获取Cloudflare CDN �
 
 ## 接口请求
 ```javascript
-curl -s "https://ip.164746.xyz/ipTop.html" | sed -n 's|(.*)|\1|p' 
+curl -s "https://ip.164746.xyz/ipTop.html" | sed -n 's|<td>\(.*\)</td>|\1|p'
 ```
 ## 返回
 ```javascript
