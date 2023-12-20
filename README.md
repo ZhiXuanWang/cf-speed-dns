@@ -4,13 +4,14 @@ CloudflareSpeedTest 推送「每5分钟自选优选 IP」获取Cloudflare CDN �
 ## cf-speed-dns有哪些功能？
 * CloudflareSpeedTest，在线推送页面。[https://ip.164746.xyz](https://ip.164746.xyz)
 * CloudflareSpeedTest，Top3接口。[https://ip.164746.xyz/ipTop.html](https://ip.164746.xyz/ipTop.html)
-* 实时域名解析推送，待开发。
+* 实时域名解析推送，fork，[https://github.com/ZhiXuanWang/cf-speed-dns-push](https://github.com/ZhiXuanWang/cf-speed-dns-push) Actions secrets and variables 添加 DOMAIN(如：174746.xyz)，SUB_DOMAIN（cdn），SECRETID（xxxxx），SECRETKEY（xxxxx）
+
 
 ## 接口请求
 ```javascript
-curl -s "https://ip.164746.xyz/ipTop.html" | sed -n 's|<td>\(.*\)</td>|\1|p'
+curl 'https://ip.164746.xyz/ipTop.html'
 ```
 ## 返回
 ```javascript
-104.16.217.122, 104.18.201.187, 104.17.207.39
+104.16.204.6,104.18.103.125
 ```
