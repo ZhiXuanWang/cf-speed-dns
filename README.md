@@ -12,7 +12,7 @@ CloudflareSpeedTest 推送「每5分钟自选优选 IP」获取Cloudflare CDN �
 ```javascript
 curl 'https://ip.164746.xyz/ipTop.html'
 ```
-## 返回
+## 接口返回
 ```javascript
 104.16.204.6,104.18.103.125
 ```
