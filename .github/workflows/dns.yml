@@ -1,0 +1,26 @@
+name: 'cf-speed-dns-push'
+
+on:
+  schedule:
+    - cron: '0 */1 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+      - name: 'Set up Python'
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.7
+      - name: 'Install dependencies'
+        run: if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: 'run dnspod'
+        env:
+          DOMAIN: ${{ secrets.DOMAIN }}
+          SUB_DOMAIN: ${{ secrets.SUB_DOMAIN }}
+          SECRETID: ${{ secrets.SECRETID }}
+          SECRETKEY: ${{ secrets.SECRETKEY }}
+          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+        run: python dnspod.py
