@@ -15,3 +15,6 @@ curl 'https://ip.164746.xyz/ipTop.html'
 ```javascript
 104.16.204.6,104.18.103.125
 ```
+
+## 感谢
+[XIU2](https://github.com/XIU2/CloudflareSpeedTest)、[ddgth](https://github.com/ddgth/cf2dns)
