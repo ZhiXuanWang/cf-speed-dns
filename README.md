@@ -1,5 +1,5 @@
 ## cf-speed-dns是什么?
-CloudflareSpeedTest 推送「每5分钟自选优选 IP」获取Cloudflare CDN 延迟和速度最快 IP ！
+CloudflareSpeedTest 推送「每10分钟自选优选 IP」获取Cloudflare CDN 延迟和速度最快 IP ！
 
 ## cf-speed-dns有哪些功能？
 * CloudflareSpeedTest优选IP，实时更新列表页面。[https://ip.164746.xyz](https://ip.164746.xyz)
