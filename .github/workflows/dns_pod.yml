@@ -1,4 +1,4 @@
-name: 'cf-speed-dns-push'
+name: 'dns_pod_push'
 
 on:
   schedule:
