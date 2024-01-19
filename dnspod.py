@@ -70,7 +70,7 @@ def pushplus(content):
     url = 'http://www.pushplus.plus/send'
     data = {
         "token": PUSHPLUS_TOKEN,
-        "title": "IP优选actions推送",
+        "title": "IP优选DNSPOD推送",
         "content": content,
         "template": "markdown",
         "channel": "wechat"
