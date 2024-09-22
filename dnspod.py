@@ -96,6 +96,6 @@ if __name__ == '__main__':
     for index, ip_address in enumerate(ip_addresses):
         # 执行 DNS 变更
         dns = change_dns(cloud, info[index]["recordId"], ip_address)
-        # pushplus_content.append(dns)
+        pushplus_content.append(dns)
 
     pushplus('\n'.join(pushplus_content))
