@@ -18,8 +18,8 @@ jobs:
         run: if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: 'run dnscf'
         env:
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-          CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
-          CF_DNS_NAME: ${{ secrets.CF_DNS_NAME }}
+          CF_API_TOKEN: ${{ cc5c003d4e730173d4112473a2ee15ebfe7e7 }}
+          CF_ZONE_ID: ${{ 7266522b3538948066cc9059b6748120 }}
+          CF_DNS_NAME: ${{ dns.路虎.eu,ogr }}
           PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
         run: python dnscf.py
