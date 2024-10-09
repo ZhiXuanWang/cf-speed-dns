@@ -64,6 +64,7 @@ def update_dns_record(record_id, name, cf_ip):
         return "ip:" + str(cf_ip) + "解析" + str(name) + "成功"
     else:
         traceback.print_exc()
+        e = response.json()['errors'][0]['message']
         print(f"cf_dns_change ERROR: ---- Time: " + str(
             time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())) + " ---- MESSAGE: " + str(e))
         return "ip:" + str(cf_ip) + "解析" + str(name) + "失败"
@@ -95,7 +96,7 @@ def main():
         dns = update_dns_record(dns_records[index], CF_DNS_NAME, ip_address)
         push_plus_content.append(dns)
 
-    push_plus('\n'.join(push_plus_content))
+    push_plus('\n\n'.join(push_plus_content))
 
 if __name__ == '__main__':
     main()
