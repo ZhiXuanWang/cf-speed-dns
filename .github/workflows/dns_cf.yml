@@ -14,7 +14,7 @@ jobs:
       - name: 'Set up Python'
         uses: actions/setup-python@v4
         with:
-          python-version: 3.7.17
+          python-version: 3.8.18
       - name: 'Install dependencies'
         run: if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: 'run dnscf'
