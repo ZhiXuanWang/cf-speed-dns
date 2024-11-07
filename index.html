@@ -1,17 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CfSpeedDns优选IP</title>
-    <link rel="stylesheet" href="https://cdn.staticfile.org/layui/2.9.2/css/layui.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        #clock {
+            text-align: center;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        .recommend-links {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .recommend-links a {
+            margin: 0 10px;
+            color: #FF5722;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .recommend-links a:hover {
+            text-decoration: underline;
+        }
+        .github-btn {
+            text-align: center;
+            padding-top: 10px;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: #fff;
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f8f8f8;
+        }
+        td a {
+            color: #1E9FFF;
+            text-decoration: none;
+        }
+        td a:hover {
+            text-decoration: underline;
+        }
+        .highlight-icon {
+            font-size: 20px;
+            color: #1E9FFF;
+            vertical-align: middle;
+        }
+        .bold-green {
+            color: green;
+            font-weight: bold;
+        }
+        /* 推荐样式 */
+        .recommended {
+            font-weight: bold;
+            color: #FF5722;
+        }
+    </style>
 </head>
 <body>
-<div class="layui-container">
-    <p id="clock" style="text-align: center;"></p>
-    <div style="text-align: center; padding-top: 10px;"><iframe src="https://ghbtns.com/github-btn.html?user=zhixuanwang&repo=cf-speed-dns&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe></div>
-    <table class="layui-table">
-        <thead>
+<p id="clock"></p>
+
+<!-- 推荐链接 -->
+<div class="recommend-links">
+    <a href="https://main.hkspeedup.com/#/register?inviteCode=2wQoJAaEM4" target="_blank">FlyShadow</a>
+    <a href="https://zfzcloud.co/aff.php?aff=22" target="_blank">纸飞机</a>
+</div>
+
+<div class="github-btn">
+    <iframe src="https://ghbtns.com/github-btn.html?user=zhixuanwang&repo=cf-speed-dns&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+</div>
+<table>
+    <thead>
         <tr>
             <th>IP地址</th>
             <th>已发送</th>
@@ -21,11 +94,11 @@
             <th>下载速度</th>
             <th>测速时间</th>
         </tr>
-        </thead>
-        <tbody>
+    </thead>
+    <tbody>
         <tr>
-            <td>
-                <span><i class="layui-icon layui-icon-release" style="font-size: 20px; color: #1E9FFF;"></i></span>
+            <td class="recommended">
+                <span class="highlight-icon">★</span>
                 <a href="https://zh-hans.ipshu.com/ipv4/162.159.245.57" target="_blank">162.159.245.57</a>
             </td>
             <td>4</td>
@@ -36,8 +109,8 @@
             <td>2024-11-07 21:35:06</td>
         </tr>
         <tr>
-            <td>
-                <span><i class="layui-icon layui-icon-release" style="font-size: 20px; color: #1E9FFF;"></i></span>
+            <td class="recommended">
+                <span class="highlight-icon">★</span>
                 <a href="https://zh-hans.ipshu.com/ipv4/162.159.254.223" target="_blank">162.159.254.223</a>
             </td>
             <td>4</td>
@@ -48,8 +121,8 @@
             <td>2024-11-07 21:40:06</td>
         </tr>
         <tr>
-            <td>
-                <span><i class="layui-icon layui-icon-release" style="font-size: 20px; color: #1E9FFF;"></i></span>
+            <td class="recommended">
+                <span class="highlight-icon">★</span>
                 <a href="https://zh-hans.ipshu.com/ipv4/172.64.40.200" target="_blank">172.64.40.200</a>
             </td>
             <td>4</td>
@@ -60,7 +133,7 @@
             <td>2024-11-07 21:15:06</td>
         </tr>
         <tr>
-            <td>
+            <td class="recommended">
                 
                 <a href="https://zh-hans.ipshu.com/ipv4/104.21.239.121" target="_blank">104.21.239.121</a>
             </td>
@@ -72,7 +145,7 @@
             <td>2024-11-07 21:15:06</td>
         </tr>
         <tr>
-            <td>
+            <td class="recommended">
                 
                 <a href="https://zh-hans.ipshu.com/ipv4/162.159.249.125" target="_blank">162.159.249.125</a>
             </td>
@@ -84,19 +157,7 @@
             <td>2024-11-07 21:15:06</td>
         </tr>
         <tr>
-            <td>
-                
-                <a href="https://zh-hans.ipshu.com/ipv4/104.21.229.34" target="_blank">104.21.229.34</a>
-            </td>
-            <td>4</td>
-            <td>4</td>
-            <td>0.0%</td>
-            <td>146.0</td>
-            <td style="color: green; font-weight: bold;">21.66MB/s</td>
-            <td>2024-11-07 21:15:06</td>
-        </tr>
-        <tr>
-            <td>
+            <td class="recommended">
                 
                 <a href="https://zh-hans.ipshu.com/ipv4/104.19.253.102" target="_blank">104.19.253.102</a>
             </td>
@@ -108,7 +169,7 @@
             <td>2024-11-07 21:40:06</td>
         </tr>
         <tr>
-            <td>
+            <td class="recommended">
                 
                 <a href="https://zh-hans.ipshu.com/ipv4/104.19.249.50" target="_blank">104.19.249.50</a>
             </td>
@@ -120,7 +181,19 @@
             <td>2024-11-07 21:50:07</td>
         </tr>
         <tr>
-            <td>
+            <td class="recommended">
+                
+                <a href="https://zh-hans.ipshu.com/ipv4/104.16.126.16" target="_blank">104.16.126.16</a>
+            </td>
+            <td>4</td>
+            <td>4</td>
+            <td>0.0%</td>
+            <td>154.0</td>
+            <td style="color: green; font-weight: bold;">17.32MB/s</td>
+            <td>2024-11-07 21:55:07</td>
+        </tr>
+        <tr>
+            <td class="recommended">
                 
                 <a href="https://zh-hans.ipshu.com/ipv4/162.159.246.138" target="_blank">162.159.246.138</a>
             </td>
@@ -132,7 +205,7 @@
             <td>2024-11-07 21:50:07</td>
         </tr>
         <tr>
-            <td>
+            <td class="recommended">
                 
                 <a href="https://zh-hans.ipshu.com/ipv4/104.19.247.58" target="_blank">104.19.247.58</a>
             </td>
@@ -143,10 +216,9 @@
             <td style="color: green; font-weight: bold;">15.94MB/s</td>
             <td>2024-11-07 21:50:07</td>
         </tr>
-        </tbody>
-    </table>
-</div>
-<script src="https://cdn.staticfile.org/layui/2.9.2/layui.js"></script>
+    </tbody>
+</table>
+
 <script>
     function updateClock() {
         const now = new Date();
@@ -165,7 +237,7 @@
         month = month < 10 ? '0' + month : month;
 
         // 显示时间和日期
-        document.getElementById('clock').innerText = '当前时间：' + year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds + "    CloudflareSpeedTest准实时自选优选IP"
+        document.getElementById('clock').innerText = '当前时间：' + year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds + "    CloudflareSpeedTest准实时自选优选IP";
     }
 
     // 初始加载
