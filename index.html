@@ -1,152 +1,223 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CfSpeedDns优选IP</title>
-    <link rel="stylesheet" href="https://cdn.staticfile.org/layui/2.9.2/css/layui.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        #clock {
+            text-align: center;
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .recommend-links {
+            text-align: center;
+        }
+        .recommend-links a {
+            margin: 0 10px;
+            color: #FF5722;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .recommend-links a:hover {
+            text-decoration: underline;
+        }
+        .github-btn {
+            text-align: center;
+            padding-top: 10px;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: #fff;
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f8f8f8;
+        }
+        td a {
+            color: #1E9FFF;
+            text-decoration: none;
+        }
+        td a:hover {
+            text-decoration: underline;
+        }
+        .highlight-icon {
+            font-size: 20px;
+            color: #1E9FFF;
+            vertical-align: middle;
+        }
+        .bold-green {
+            color: green;
+            font-weight: bold;
+        }
+        /* 推荐样式 */
+        .recommended {
+            font-weight: bold;
+            color: #FF5722;
+        }
+    </style>
 </head>
 <body>
-<div class="layui-container">
-    <p id="clock" style="text-align: center;"></p>
-    <div style="text-align: center; padding-top: 10px;"><iframe src="https://ghbtns.com/github-btn.html?user=zhixuanwang&repo=cf-speed-dns&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe></div>
-    <table class="layui-table">
-        <thead>
-        <tr>
-            <th>IP地址</th>
-            <th>已发送</th>
-            <th>已接收</th>
-            <th>丢包率</th>
-            <th>平均延迟</th>
-            <th>下载速度</th>
-            <th>测速时间</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>
-                <span><i class="layui-icon layui-icon-release" style="font-size: 20px; color: #1E9FFF;"></i></span>
-                <a href="https://zh-hans.ipshu.com/ipv4/104.18.191.87" target="_blank">104.18.191.87</a>
-            </td>
-            <td>4</td>
-            <td>4</td>
-            <td>0.0%</td>
-            <td>133.0</td>
-            <td style="color: green; font-weight: bold;">37.94MB/s</td>
-            <td>2024-11-07 03:29:45</td>
-        </tr>
-        <tr>
-            <td>
-                <span><i class="layui-icon layui-icon-release" style="font-size: 20px; color: #1E9FFF;"></i></span>
-                <a href="https://zh-hans.ipshu.com/ipv4/104.18.81.74" target="_blank">104.18.81.74</a>
-            </td>
-            <td>4</td>
-            <td>4</td>
-            <td>0.0%</td>
-            <td>131.0</td>
-            <td style="color: green; font-weight: bold;">37.38MB/s</td>
-            <td>2024-11-07 04:59:34</td>
-        </tr>
-        <tr>
-            <td>
-                <span><i class="layui-icon layui-icon-release" style="font-size: 20px; color: #1E9FFF;"></i></span>
-                <a href="https://zh-hans.ipshu.com/ipv4/104.17.0.116" target="_blank">104.17.0.116</a>
-            </td>
-            <td>4</td>
-            <td>4</td>
-            <td>0.0%</td>
-            <td>133.0</td>
-            <td style="color: green; font-weight: bold;">37.3MB/s</td>
-            <td>2024-11-07 04:44:42</td>
-        </tr>
-        <tr>
-            <td>
-                
-                <a href="https://zh-hans.ipshu.com/ipv4/172.64.173.90" target="_blank">172.64.173.90</a>
-            </td>
-            <td>4</td>
-            <td>4</td>
-            <td>0.0%</td>
-            <td>133.0</td>
-            <td style="color: green; font-weight: bold;">37.29MB/s</td>
-            <td>2024-11-07 04:19:38</td>
-        </tr>
-        <tr>
-            <td>
-                
-                <a href="https://zh-hans.ipshu.com/ipv4/172.64.130.108" target="_blank">172.64.130.108</a>
-            </td>
-            <td>4</td>
-            <td>4</td>
-            <td>0.0%</td>
-            <td>131.0</td>
-            <td style="color: green; font-weight: bold;">37.2MB/s</td>
-            <td>2024-11-07 04:04:37</td>
-        </tr>
-        <tr>
-            <td>
-                
-                <a href="https://zh-hans.ipshu.com/ipv4/104.19.124.201" target="_blank">104.19.124.201</a>
-            </td>
-            <td>4</td>
-            <td>4</td>
-            <td>0.0%</td>
-            <td>134.0</td>
-            <td style="color: green; font-weight: bold;">37.18MB/s</td>
-            <td>2024-11-07 05:39:28</td>
-        </tr>
-        <tr>
-            <td>
-                
-                <a href="https://zh-hans.ipshu.com/ipv4/104.16.57.196" target="_blank">104.16.57.196</a>
-            </td>
-            <td>4</td>
-            <td>4</td>
-            <td>0.0%</td>
-            <td>133.0</td>
-            <td style="color: green; font-weight: bold;">36.88MB/s</td>
-            <td>2024-11-07 07:59:40</td>
-        </tr>
-        <tr>
-            <td>
-                
-                <a href="https://zh-hans.ipshu.com/ipv4/172.64.107.4" target="_blank">172.64.107.4</a>
-            </td>
-            <td>4</td>
-            <td>4</td>
-            <td>0.0%</td>
-            <td>132.0</td>
-            <td style="color: green; font-weight: bold;">35.86MB/s</td>
-            <td>2024-11-07 06:08:24</td>
-        </tr>
-        <tr>
-            <td>
-                
-                <a href="https://zh-hans.ipshu.com/ipv4/172.64.100.171" target="_blank">172.64.100.171</a>
-            </td>
-            <td>4</td>
-            <td>4</td>
-            <td>0.0%</td>
-            <td>133.0</td>
-            <td style="color: green; font-weight: bold;">35.79MB/s</td>
-            <td>2024-11-07 05:24:15</td>
-        </tr>
-        <tr>
-            <td>
-                
-                <a href="https://zh-hans.ipshu.com/ipv4/104.16.84.78" target="_blank">104.16.84.78</a>
-            </td>
-            <td>4</td>
-            <td>4</td>
-            <td>0.0%</td>
-            <td>132.0</td>
-            <td style="color: green; font-weight: bold;">35.33MB/s</td>
-            <td>2024-11-07 05:08:31</td>
-        </tr>
-        </tbody>
-    </table>
+<p id="clock"></p>
+
+<!-- 推荐链接 -->
+<div class="recommend-links">
+    <a href="https://main.hkspeedup.com/#/register?inviteCode=2wQoJAaEM4" target="_blank">FlyShadow</a>
+    <a href="https://zfzcloud.co/aff.php?aff=22" target="_blank">纸飞机</a>
 </div>
-<script src="https://cdn.staticfile.org/layui/2.9.2/layui.js"></script>
+
+<div class="github-btn">
+    <iframe src="https://ghbtns.com/github-btn.html?user=zhixuanwang&repo=cf-speed-dns&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>IP地址</th>
+        <th>已发送</th>
+        <th>已接收</th>
+        <th>丢包率</th>
+        <th>平均延迟</th>
+        <th>下载速度</th>
+        <th>测速时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="recommended">
+            <span class="highlight-icon">★</span>
+            <a href="https://zh-hans.ipshu.com/ipv4/104.19.113.160" target="_blank">104.19.113.160</a>
+        </td>
+        <td>4</td>
+        <td>4</td>
+        <td>0.0%</td>
+        <td>135.0</td>
+        <td style="color: green; font-weight: bold;">40.62MB/s</td>
+        <td>2024-11-08 07:14:31</td>
+    </tr>
+    <tr>
+        <td class="recommended">
+            <span class="highlight-icon">★</span>
+            <a href="https://zh-hans.ipshu.com/ipv4/104.17.49.202" target="_blank">104.17.49.202</a>
+        </td>
+        <td>4</td>
+        <td>4</td>
+        <td>0.0%</td>
+        <td>133.0</td>
+        <td style="color: green; font-weight: bold;">36.04MB/s</td>
+        <td>2024-11-08 07:09:37</td>
+    </tr>
+    <tr>
+        <td class="recommended">
+            
+            <a href="https://zh-hans.ipshu.com/ipv4/172.64.139.24" target="_blank">172.64.139.24</a>
+        </td>
+        <td>4</td>
+        <td>4</td>
+        <td>0.0%</td>
+        <td>134.0</td>
+        <td style="color: green; font-weight: bold;">35.75MB/s</td>
+        <td>2024-11-08 08:04:34</td>
+    </tr>
+    <tr>
+        <td class="recommended">
+            
+            <a href="https://zh-hans.ipshu.com/ipv4/104.19.82.30" target="_blank">104.19.82.30</a>
+        </td>
+        <td>4</td>
+        <td>4</td>
+        <td>0.0%</td>
+        <td>132.0</td>
+        <td style="color: green; font-weight: bold;">35.22MB/s</td>
+        <td>2024-11-08 07:09:37</td>
+    </tr>
+    <tr>
+        <td class="recommended">
+            
+            <a href="https://zh-hans.ipshu.com/ipv4/104.19.193.16" target="_blank">104.19.193.16</a>
+        </td>
+        <td>4</td>
+        <td>4</td>
+        <td>0.0%</td>
+        <td>132.0</td>
+        <td style="color: green; font-weight: bold;">35.15MB/s</td>
+        <td>2024-11-08 07:14:31</td>
+    </tr>
+    <tr>
+        <td class="recommended">
+            
+            <a href="https://zh-hans.ipshu.com/ipv4/104.17.188.207" target="_blank">104.17.188.207</a>
+        </td>
+        <td>4</td>
+        <td>4</td>
+        <td>0.0%</td>
+        <td>135.0</td>
+        <td style="color: green; font-weight: bold;">35.11MB/s</td>
+        <td>2024-11-08 07:14:31</td>
+    </tr>
+    <tr>
+        <td class="recommended">
+            
+            <a href="https://zh-hans.ipshu.com/ipv4/172.64.207.99" target="_blank">172.64.207.99</a>
+        </td>
+        <td>4</td>
+        <td>4</td>
+        <td>0.0%</td>
+        <td>133.0</td>
+        <td style="color: green; font-weight: bold;">34.97MB/s</td>
+        <td>2024-11-08 08:34:12</td>
+    </tr>
+    <tr>
+        <td class="recommended">
+            
+            <a href="https://zh-hans.ipshu.com/ipv4/104.19.89.201" target="_blank">104.19.89.201</a>
+        </td>
+        <td>4</td>
+        <td>4</td>
+        <td>0.0%</td>
+        <td>135.0</td>
+        <td style="color: green; font-weight: bold;">34.18MB/s</td>
+        <td>2024-11-08 07:14:31</td>
+    </tr>
+    <tr>
+        <td class="recommended">
+            
+            <a href="https://zh-hans.ipshu.com/ipv4/172.64.135.119" target="_blank">172.64.135.119</a>
+        </td>
+        <td>4</td>
+        <td>4</td>
+        <td>0.0%</td>
+        <td>133.0</td>
+        <td style="color: green; font-weight: bold;">33.86MB/s</td>
+        <td>2024-11-08 08:34:12</td>
+    </tr>
+    <tr>
+        <td class="recommended">
+            
+            <a href="https://zh-hans.ipshu.com/ipv4/104.19.147.66" target="_blank">104.19.147.66</a>
+        </td>
+        <td>4</td>
+        <td>3</td>
+        <td>0.25%</td>
+        <td>156.0</td>
+        <td style="color: green; font-weight: bold;">7.57MB/s</td>
+        <td>2024-11-08 08:24:29</td>
+    </tr>
+    </tbody>
+</table>
+
 <script>
     function updateClock() {
         const now = new Date();
@@ -165,7 +236,7 @@
         month = month < 10 ? '0' + month : month;
 
         // 显示时间和日期
-        document.getElementById('clock').innerText = '当前时间：' + year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds + "    CloudflareSpeedTest准实时自选优选IP"
+        document.getElementById('clock').innerText = '当前时间：' + year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds + "    CloudflareSpeedTest准实时自选优选IP";
     }
 
     // 初始加载
