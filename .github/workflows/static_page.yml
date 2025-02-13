@@ -29,11 +29,11 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: github-pages
-          path: './path/to/static/files/*'  # 确保路径正确
+          path: './*.html'  # 确保路径正确
       - name: List uploaded artifacts
         run: |
           echo "Artifacts:"
-          ls -l ./path/to/static/files/  # 列出上传的文件
+          ls -l ./*.html  # 列出上传的文件
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
