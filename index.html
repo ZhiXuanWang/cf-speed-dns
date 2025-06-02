@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CfSpeedDns优选IP</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CfSpeedDns优选IP - Cloudflare IP测速与优选工具</title>
+    <meta name="description" content="CfSpeedDns实时测速并优选Cloudflare IP，显示丢包率、平均延迟、下载速度及测速时间，帮助用户选择最佳优质网络节点。">
+    <meta name="keywords" content="Cloudflare, DNS测速, 优选IP, 丢包率, 平均延迟, 下载速度, CfSpeedDns">
     <style>
+        /* CSS样式保持不变 */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
         }
+
         #clock {
             text-align: center;
             font-size: 18px;
-            margin: 10px 0;
+            margin: 0; /* 去掉时钟的上下边距 */
+            padding: 0; /* 去掉时钟的内边距 */
         }
+
         .github-btn {
             text-align: center;
-            padding-top: 10px;
+            margin-left: 0; /* 去掉左边距 */
         }
+
         table {
             width: 90%;
             margin: 20px auto;
@@ -27,38 +34,73 @@
             background: #fff;
             border: 1px solid #ddd;
         }
+
+        caption {
+            caption-side: top;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px 0;
+            color: #333;
+        }
+
         th, td {
             padding: 10px;
             text-align: center;
             border: 1px solid #ddd;
         }
+
         th {
             background-color: #f8f8f8;
         }
+
         td a {
             color: #1E9FFF;
             text-decoration: none;
         }
+
         td a:hover {
             text-decoration: underline;
         }
+
         .highlight-icon {
             font-size: 20px;
             color: #1E9FFF;
             vertical-align: middle;
         }
+
         .recommended {
             font-weight: bold;
             color: #FF5722;
         }
+
+        /* 设置父容器为 flexbox */
+        .container {
+            display: flex;
+            justify-content: center; /* 水平居中对齐 */
+            align-items: center; /* 垂直对齐 */
+            margin: 0; /* 移除上下边距 */
+            padding: 10px; /* 移除内边距 */
+            gap: 5px; /* 设置两个元素之间的间隙 */
+        }
+
+        /* 防止 iframe 激活状态时出现边框 */
+        .github-btn iframe {
+            border: none;
+        }
     </style>
 </head>
 <body>
-<p id="clock"></p>
-<div class="github-btn">
-    <iframe src="https://ghbtns.com/github-btn.html?user=zhixuanwang&repo=cf-speed-dns&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+
+<div class="container">
+    <p id="clock">当前时间：<span id="time"></span></p>
+    <div class="github-btn">
+        <iframe src="https://ghbtns.com/github-btn.html?user=zhixuanwang&repo=cf-speed-dns&type=star&count=true"
+                frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+    </div>
 </div>
+
 <table>
+    <caption>Cloudflare优选IP测速数据</caption>
     <thead>
     <tr>
         <th>IP地址</th>
@@ -223,9 +265,6 @@
     setInterval(function () {
         location.reload();
     }, 5 * 60 * 1000); // 5分钟 * 60秒 * 1000毫秒
-</script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9041493832110391"
-        crossorigin="anonymous">
 </script>
 <script>
     // 百度统计
