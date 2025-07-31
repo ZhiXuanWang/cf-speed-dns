@@ -1,3 +1,4 @@
+# ✅ 完整、无 v3 依赖的版本
 name: Deploy static HTML to GitHub Pages
 
 on:
@@ -10,19 +11,15 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
   deploy:
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout source
         uses: actions/checkout@v4
 
       - name: Setup GitHub Pages
@@ -30,10 +27,10 @@ jobs:
         with:
           enablement: true
 
-      - name: Upload GitHub Pages artifact
+      - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v2
         with:
-          path: "."  # ✅ 上传整个根目录，包含 index.html、ipTop.html 等
+          path: "."  # 如果 HTML 文件都在根目录
 
       - name: Deploy to GitHub Pages
         id: deployment
