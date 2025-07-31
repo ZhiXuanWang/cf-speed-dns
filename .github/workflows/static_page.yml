@@ -23,20 +23,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Setup Pages
         uses: actions/configure-pages@v4
-
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          path: './*.html'
-
-      - name: List uploaded files
+          name: github-pages
+          path: './*.html' 
+      - name: List uploaded artifacts
         run: |
-          echo "Uploaded HTML files:"
-          ls -l ./*.html
-
+          echo "Artifacts:"
+          ls -l ./*.html 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
