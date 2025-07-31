@@ -1,4 +1,4 @@
-name: Deploy static content to Pages
+name: Deploy static HTML to GitHub Pages
 
 on:
   push:
@@ -20,20 +20,21 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Setup Pages
+
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
         with:
-          name: github-pages
-          path: './*.html'  # 确保路径正确
-      - name: List uploaded artifacts
-        run: |
-          echo "Artifacts:"
-          ls -l ./*.html  # 列出上传的文件
+          enablement: true
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: "."  # ✅ 上传整个根目录，包含 index.html、ipTop.html 等
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
