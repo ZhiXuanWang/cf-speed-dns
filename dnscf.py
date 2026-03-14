@@ -56,46 +56,58 @@ def get_cf_speed_test_ip(timeout=10, max_retries=5):
 
 def get_dns_records(name):
     """
-    获取指定名称的 DNS 记录 ID 列表（仅 A 类型）
+    获取指定名称的 DNS 记录列表（仅 A 类型）
 
     Args:
         name: DNS 记录名称
 
     Returns:
-        记录 ID 列表，失败返回空列表
+        记录字典列表（包含 id 和 content），失败返回空列表
     """
-    def_info = []
+    records = []
     url = f'https://api.cloudflare.com/client/v4/zones/{CF_ZONE_ID}/dns_records'
 
     try:
         response = requests.get(url, headers=HEADERS, timeout=DEFAULT_TIMEOUT)
         if response.status_code == 200:
-            records = response.json().get('result', [])
-            for record in records:
+            result = response.json().get('result', [])
+            for record in result:
                 # 只获取 A 类型记录，避免更新其他类型记录导致 400 错误
                 if record.get('name') == name and record.get('type') == 'A':
-                    def_info.append(record['id'])
+                    records.append({
+                        'id': record['id'],
+                        'content': record.get('content', '')
+                    })
         else:
             print(f'获取 DNS 记录失败: {response.text}')
     except Exception as e:
         print(f'获取 DNS 记录异常: {e}')
         traceback.print_exc()
 
-    return def_info
+    return records
 
 
-def update_dns_record(record_id, name, cf_ip):
+def update_dns_record(record_info, name, cf_ip):
     """
     更新 DNS 记录
 
     Args:
-        record_id: DNS 记录 ID
+        record_info: DNS 记录字典，包含 id 和 content
         name: DNS 记录名称
         cf_ip: 新的 IP 地址
 
     Returns:
         操作结果字符串
     """
+    record_id = record_info['id']
+    current_ip = record_info.get('content', '')
+
+    # 如果 IP 相同则跳过更新
+    if current_ip == cf_ip:
+        current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+        print(f"cf_dns_change skip: ---- Time: {current_time} ---- ip：{cf_ip} (已是最新)")
+        return f"ip:{cf_ip} 解析 {name} 跳过 (已是最新)"
+
     url = f'https://api.cloudflare.com/client/v4/zones/{CF_ZONE_ID}/dns_records/{record_id}'
     data = {
         'type': 'A',
