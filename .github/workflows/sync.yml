@@ -1,5 +1,8 @@
 name: Upstream Sync
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 permissions:
   contents: write
 
@@ -13,8 +16,6 @@ jobs:
     name: Sync latest commits from upstream repo
     runs-on: ubuntu-latest
     if: ${{ github.event.repository.fork }}
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       # Step 1: run a standard checkout action
