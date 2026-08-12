@@ -6,60 +6,18 @@
     <title>CF优选IP - Cloudflare优选IP测速与优选工具</title>
     <meta name="description" content="CF优选IP工具。动态获取Cloudflare优选IP，CloudflareSpeedTest测速。">
     <meta name="keywords" content="Cloudflare, CF优选IP工具, CF优选IP, Cloudflare优选IP, CloudflareSpeedTest测速">
-    <meta name="google-site-verification" content="A3l8C-0bF2Kpgnk0AwiEgoyudoZGT2xB3H1ublh65kA" />
-    <meta name="baidu-site-verification" content="codeva-HvnxelEijE" />
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        table {
-            width: 90%;
-            margin: 10px auto;
-            border-collapse: collapse;
-            background: #fff;
-            border: 1px solid #ddd;
-        }
-        .centered-div {
-            font-size: 15px;
-            font-weight: bold;
-            text-align: center;
-        }
-        th, td {
-            padding: 10px;
-            text-align: center;
-            border: 1px solid #ddd;
-        }
-        th {
-            background-color: #f8f8f8;
-        }
-        td a {
-            color: #1E9FFF;
-            text-decoration: none;
-        }
-        td a:hover {
-            text-decoration: underline;
-        }
-        .highlight-icon {
-            font-size: 20px;
-            color: #1E9FFF;
-            vertical-align: middle;
-        }
-        .recommended {
-            font-weight: bold;
-            color: #FF5722;
-        }
-        .copy-btn {
-            cursor: pointer;
-            margin-left: 8px;
-            color: #1E9FFF;
-            font-size: 12px;
-        }
-        .copy-btn:hover {
-            text-decoration: underline;
-        }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f5f5f5; }
+        table { width: 90%; margin: 10px auto; border-collapse: collapse; background: #fff; border: 1px solid #ddd; }
+        .centered-div { font-size: 15px; font-weight: bold; text-align: center; }
+        th, td { padding: 10px; text-align: center; border: 1px solid #ddd; }
+        th { background-color: #f8f8f8; }
+        td a { color: #1E9FFF; text-decoration: none; }
+        td a:hover { text-decoration: underline; }
+        .highlight-icon { font-size: 20px; color: #1E9FFF; vertical-align: middle; }
+        .recommended { font-weight: bold; color: #FF5722; }
+        .copy-btn { cursor: pointer; margin-left: 8px; color: #1E9FFF; font-size: 12px; }
+        .copy-btn:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -85,15 +43,15 @@
     <tr>
         <td class="recommended">
             <span class="highlight-icon">★</span>
-            <a href="https://zh-hans.ipshu.com/ipv4/104.18.36.144" target="_blank">104.18.36.144</a>
-            <span class="copy-btn" onclick="copyIP('104.18.36.144')" title="点击复制">复制</span>
+            <a href="https://zh-hans.ipshu.com/ipv4/172.64.229.199" target="_blank">172.64.229.199</a>
+            <span class="copy-btn" onclick="copyIP('172.64.229.199')" title="点击复制">复制</span>
         </td>
         <td>4</td>
         <td>4</td>
         <td>0.00%</td>
-        <td>69.19</td>
-        <td style="color: green; font-weight: bold;">0.05MB/s</td>
-        <td>2026-08-12 14:04:56</td>
+        <td>67.85</td>
+        <td style="color: green; font-weight: bold;">22.95MB/s</td>
+        <td>2026-08-12 14:35:58</td>
     </tr>
     </tbody>
 </table>
@@ -101,7 +59,7 @@
     function copyIP(ip) {
         navigator.clipboard.writeText(ip).then(function() {
             alert('已复制: ' + ip);
-        }).catch(function(err) {
+        }).catch(function() {
             var textArea = document.createElement('textarea');
             textArea.value = ip;
             document.body.appendChild(textArea);
@@ -111,13 +69,6 @@
             alert('已复制: ' + ip);
         });
     }
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?9b2713b363ad7f0c3c30ab7556936453";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
 </script>
 </body>
 </html>
