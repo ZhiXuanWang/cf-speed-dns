@@ -173,7 +173,8 @@ def main():
         print("错误: 无法获取优选 IP")
         return
 
-    ip_addresses = [ip.strip() for ip in ip_addresses_str.split(',') if ip.strip()]
+    import re
+    ip_addresses = [ip.strip() for ip in re.split(r'[,;\r\n]+', ip_addresses_str) if ip.strip()]
     if not ip_addresses:
         print("错误: 未解析到有效 IP 地址")
         return

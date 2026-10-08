@@ -16,9 +16,13 @@ from typing import Dict, Any, List
 
 import requests
 
+import re
+
 # 域名和子域名
 DOMAIN = os.environ.get('DOMAIN')
 SUB_DOMAIN = os.environ.get('SUB_DOMAIN')
+RECORD_TYPE = os.environ.get('RECORD_TYPE', 'A').upper()
+RECORD_LINE = os.environ.get('RECORD_LINE', '默认')
 
 # API 密钥
 SECRETID = os.environ.get("SECRETID")
@@ -113,12 +117,13 @@ class DnsPodClient:
     def _call_api(self, action: str, payload: Dict[str, Any]) -> Dict[str, Any]:
         """调用腾讯云 API"""
         headers = self.signer.sign(action, payload)
+        payload_bytes = json.dumps(payload).encode('utf-8')
         try:
             response = self.session.post(
                 self.base_url,
                 headers=headers,
-                json=payload,
-                timeout=30
+                data=payload_bytes,
+                timeout=DEFAULT_TIMEOUT
             )
             response.raise_for_status()
             return response.json()
@@ -197,7 +202,9 @@ def get_cf_speed_test_ip(timeout=10, max_retries=5):
                 timeout=timeout
             )
             if response.status_code == 200:
-                return response.text
+                text = response.text
+                text = re.sub(r'<[^>]+>', '', text)
+                return text
         except Exception as e:
             print(f"获取优选 IP 失败 (尝试 {attempt + 1}/{max_retries}): {e}")
             if attempt == max_retries - 1:
@@ -219,11 +226,11 @@ def build_info(client: DnsPodClient) -> List[Dict[str, Any]]:
     current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 
     try:
-        ret = client.get_record(DOMAIN, 100, SUB_DOMAIN, 'A')
+        ret = client.get_record(DOMAIN, 100, SUB_DOMAIN, RECORD_TYPE)
         records = ret.get("data", {}).get("records", [])
 
         for record in records:
-            if record.get("line") == "默认":
+            if record.get("line") == RECORD_LINE:
                 def_info.append({"recordId": record.get("id"), "value": record.get("value")})
 
         print(f"build_info success: ---- Time: {current_time} ---- ip：{def_info}")
@@ -249,9 +256,14 @@ def change_dns(client: DnsPodClient, record_id: int, cf_ip: str) -> str:
     current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 
     try:
-        client.change_record(DOMAIN, record_id, SUB_DOMAIN, cf_ip, "A", "默认", 600)
-        print(f"change_dns success: ---- Time: {current_time} ---- ip：{cf_ip}")
-        return f"ip:{cf_ip} 解析 {SUB_DOMAIN}.{DOMAIN} 成功"
+        res = client.change_record(DOMAIN, record_id, SUB_DOMAIN, cf_ip, RECORD_TYPE, RECORD_LINE, 600)
+        if res.get("code") == 0:
+            print(f"change_dns success: ---- Time: {current_time} ---- ip：{cf_ip}")
+            return f"ip:{cf_ip} 解析 {SUB_DOMAIN}.{DOMAIN} 成功"
+        else:
+            msg = res.get("message", "Unknown error")
+            print(f"change_dns failed: ---- Time: {current_time} ---- MESSAGE: {msg}")
+            return f"ip:{cf_ip} 解析 {SUB_DOMAIN}.{DOMAIN} 失败: {msg}"
     except Exception as e:
         traceback.print_exc()
         print(f"change_dns ERROR: ---- Time: {current_time} ---- MESSAGE: {e}")
@@ -308,7 +320,7 @@ def main():
         print("错误: 无法获取优选 IP")
         return
 
-    ip_addresses = [ip.strip() for ip in ip_addresses_str.split(',') if ip.strip()]
+    ip_addresses = [ip.strip() for ip in re.split(r'[,;\r\n]+', ip_addresses_str) if ip.strip()]
     if not ip_addresses:
         print("错误: 未解析到有效 IP 地址")
         return
