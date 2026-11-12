@@ -1,87 +1,48 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CF优选IP - Cloudflare优选IP测速与优选工具</title>
-    <meta name="description" content="CF优选IP工具。动态获取Cloudflare优选IP，CloudflareSpeedTest测速。">
-    <meta name="keywords" content="Cloudflare, CF优选IP工具, CF优选IP, Cloudflare优选IP, CloudflareSpeedTest测速">
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f5f5f5; }
-        table { width: 90%; margin: 10px auto; border-collapse: collapse; background: #fff; border: 1px solid #ddd; }
-        .centered-div { font-size: 15px; font-weight: bold; text-align: center; }
-        th, td { padding: 10px; text-align: center; border: 1px solid #ddd; }
-        th { background-color: #f8f8f8; }
-        td a { color: #1E9FFF; text-decoration: none; }
-        td a:hover { text-decoration: underline; }
-        .highlight-icon { font-size: 20px; color: #1E9FFF; vertical-align: middle; }
-        .recommended { font-weight: bold; color: #FF5722; }
-        .copy-btn { cursor: pointer; margin-left: 8px; color: #1E9FFF; font-size: 12px; }
-        .copy-btn:hover { text-decoration: underline; }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CF优选IP - Cloudflare优选IP测速与优选工具</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #f5f5f5; margin: 1rem; }
+    h1 { text-align: center; font-size: 1.25rem; }
+    .results { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { padding: .65rem; border: 1px solid #ddd; text-align: center; white-space: nowrap; }
+    th { background: #f8f8f8; }
+    .speed { font-weight: bold; color: green; }
+    button { margin-left: .5rem; cursor: pointer; }
+  </style>
 </head>
 <body>
-<div class="centered-div">
-    Cloudflare优选IP测速数据<br>
-    CF优选IP工具，动态获取Cloudflare优选IP，CloudflareSpeedTest测速。
-    <iframe src="https://ghbtns.com/github-btn.html?user=zhixuanwang&repo=cf-speed-dns&type=star&count=true"
-            frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
-</div>
-<table>
-    <thead>
-    <tr>
-        <th>IP地址</th>
-        <th>已发送</th>
-        <th>已接收</th>
-        <th>丢包率</th>
-        <th>平均延迟</th>
-        <th>下载速度</th>
-        <th>测速时间</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td class="recommended">
-            <span class="highlight-icon">★</span>
-            <a href="https://zh-hans.ipshu.com/ipv4/104.18.37.195" target="_blank">104.18.37.195</a>
-            <span class="copy-btn" onclick="copyIP('104.18.37.195')" title="点击复制">复制</span>
-        </td>
-        <td>4</td>
-        <td>4</td>
-        <td>0.00%</td>
-        <td>68.26</td>
-        <td style="color: green; font-weight: bold;">0.09MB/s</td>
-        <td>2026-11-12 17:11:27</td>
-    </tr>
-    <tr>
-        <td class="recommended">
-            <span class="highlight-icon">★</span>
-            <a href="https://zh-hans.ipshu.com/ipv4/172.64.146.40" target="_blank">172.64.146.40</a>
-            <span class="copy-btn" onclick="copyIP('172.64.146.40')" title="点击复制">复制</span>
-        </td>
-        <td>4</td>
-        <td>4</td>
-        <td>0.00%</td>
-        <td>70.14</td>
-        <td style="color: green; font-weight: bold;">0.08MB/s</td>
-        <td>2026-11-12 17:11:27</td>
-    </tr>
-    </tbody>
-</table>
-<script>
-    function copyIP(ip) {
-        navigator.clipboard.writeText(ip).then(function() {
-            alert('已复制: ' + ip);
-        }).catch(function() {
-            var textArea = document.createElement('textarea');
-            textArea.value = ip;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textArea);
-            alert('已复制: ' + ip);
-        });
-    }
-</script>
+  <h1>Cloudflare 优选 IP 复测结果</h1>
+  <div class="results">
+    <table>
+      <thead>
+        <tr><th>IP 地址</th><th>下载速度</th><th>平均延迟</th><th>丢包率</th><th>地区</th><th>复测时间 (UTC)</th></tr>
+      </thead>
+      <tbody>
+<tr><td><code>172.64.229.149</code><button type="button" data-ip="172.64.229.149">复制</button></td><td class="speed">78.44MB/s</td><td>61.8ms</td><td>50.0%</td><td>NRT</td><td><time datetime="2026-11-12T10:07:24.050925055Z">2026-11-12T10:07:24.050925055Z</time></td></tr>
+<tr><td><code>172.64.229.0</code><button type="button" data-ip="172.64.229.0">复制</button></td><td class="speed">78.21MB/s</td><td>78.16ms</td><td>25.0%</td><td>NRT</td><td><time datetime="2026-11-12T10:07:24.050925055Z">2026-11-12T10:07:24.050925055Z</time></td></tr>
+<tr><td><code>172.64.229.52</code><button type="button" data-ip="172.64.229.52">复制</button></td><td class="speed">73.27MB/s</td><td>90.8ms</td><td>0.0%</td><td>NRT</td><td><time datetime="2026-11-12T10:07:24.050925055Z">2026-11-12T10:07:24.050925055Z</time></td></tr>
+<tr><td><code>172.64.229.215</code><button type="button" data-ip="172.64.229.215">复制</button></td><td class="speed">66.06MB/s</td><td>51.84ms</td><td>50.0%</td><td>NRT</td><td><time datetime="2026-11-12T10:07:24.050925055Z">2026-11-12T10:07:24.050925055Z</time></td></tr>
+<tr><td><code>172.64.229.241</code><button type="button" data-ip="172.64.229.241">复制</button></td><td class="speed">57.5MB/s</td><td>112.67ms</td><td>25.0%</td><td>NRT</td><td><time datetime="2026-11-12T10:07:24.050925055Z">2026-11-12T10:07:24.050925055Z</time></td></tr>
+<tr><td><code>172.64.229.67</code><button type="button" data-ip="172.64.229.67">复制</button></td><td class="speed">56.09MB/s</td><td>96.33ms</td><td>0.0%</td><td>NRT</td><td><time datetime="2026-11-12T10:07:24.050925055Z">2026-11-12T10:07:24.050925055Z</time></td></tr>
+<tr><td><code>172.64.229.202</code><button type="button" data-ip="172.64.229.202">复制</button></td><td class="speed">54.41MB/s</td><td>86.63ms</td><td>0.0%</td><td>NRT</td><td><time datetime="2026-11-12T10:07:24.050925055Z">2026-11-12T10:07:24.050925055Z</time></td></tr>
+<tr><td><code>172.64.229.249</code><button type="button" data-ip="172.64.229.249">复制</button></td><td class="speed">44.43MB/s</td><td>71.45ms</td><td>25.0%</td><td>NRT</td><td><time datetime="2026-11-12T10:07:24.050925055Z">2026-11-12T10:07:24.050925055Z</time></td></tr>
+<tr><td><code>172.64.229.128</code><button type="button" data-ip="172.64.229.128">复制</button></td><td class="speed">38.95MB/s</td><td>121.82ms</td><td>50.0%</td><td>NRT</td><td><time datetime="2026-11-12T10:07:24.050925055Z">2026-11-12T10:07:24.050925055Z</time></td></tr>
+<tr><td><code>172.64.229.147</code><button type="button" data-ip="172.64.229.147">复制</button></td><td class="speed">32.07MB/s</td><td>82.57ms</td><td>25.0%</td><td>NRT</td><td><time datetime="2026-11-12T10:07:24.050925055Z">2026-11-12T10:07:24.050925055Z</time></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <script>
+    document.querySelectorAll('button[data-ip]').forEach(button => {
+      button.addEventListener('click', async () => {
+        await navigator.clipboard.writeText(button.dataset.ip);
+        button.textContent = '已复制';
+      });
+    });
+  </script>
 </body>
 </html>
