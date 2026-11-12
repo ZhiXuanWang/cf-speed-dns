@@ -16,89 +16,55 @@
         td a:hover { text-decoration: underline; }
         .highlight-icon { font-size: 20px; color: #1E9FFF; vertical-align: middle; }
         .recommended { font-weight: bold; color: #FF5722; }
-        .copy-btn { cursor: pointer; margin-left: 8px; padding: 0; border: 0; background: none; color: #1E9FFF; font: inherit; font-size: 12px; }
+        .copy-btn { cursor: pointer; margin-left: 8px; color: #1E9FFF; font-size: 12px; }
         .copy-btn:hover { text-decoration: underline; }
-        .speed { color: green; font-weight: bold; }
-        .mobile-label { display: none; }
-
-        @media (max-width: 640px) {
-            .centered-div { padding: 12px 12px 4px; line-height: 1.5; }
-            .github-star { display: block; margin: 8px auto 0; max-width: 100%; }
-            table { display: block; width: auto; margin: 10px 12px 16px; border: 0; background: transparent; }
-            thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-            tbody { display: block; }
-            tbody tr {
-                display: grid;
-                grid-template-columns: repeat(12, minmax(0, 1fr));
-                margin-bottom: 8px;
-                border: 1px solid #ddd;
-                background: #fff;
-            }
-            tbody td { display: block; grid-column: span 3; min-width: 0; padding: 7px 4px; border: 0; font-size: 14px; }
-            .recommended, .speed {
-                display: flex;
-                grid-row: 1;
-                align-items: center;
-                padding: 4px 8px;
-                border-bottom: 1px solid #ddd;
-                background: #f8f8f8;
-                white-space: nowrap;
-            }
-            .recommended { grid-column: 1 / span 8; gap: 4px; }
-            .speed { grid-column: 9 / -1; justify-content: flex-end; }
-            .highlight-icon { flex: none; color: #1E9FFF; font-size: 16px; line-height: 1; }
-            .copy-btn { min-height: 32px; margin-left: 0; padding: 0 4px; white-space: nowrap; }
-            .mobile-label { display: block; margin-bottom: 2px; color: #595959; font-size: 12px; }
-            .measured-at { grid-column: 1 / -1; border-top: 1px solid #eee; color: #595959; font-size: 12px; }
-            .measured-at .mobile-label { display: inline; margin-right: 4px; }
-        }
     </style>
 </head>
 <body>
 <div class="centered-div">
     Cloudflare优选IP测速数据<br>
     CF优选IP工具，动态获取Cloudflare优选IP，CloudflareSpeedTest测速。
-    <iframe class="github-star" src="https://ghbtns.com/github-btn.html?user=zhixuanwang&amp;repo=cf-speed-dns&amp;type=star&amp;count=true"
-            frameborder="0" scrolling="0" width="150" height="20" title="在 GitHub 为 cf-speed-dns 加星"></iframe>
+    <iframe src="https://ghbtns.com/github-btn.html?user=zhixuanwang&repo=cf-speed-dns&type=star&count=true"
+            frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
 </div>
-<table role="table">
-    <thead role="rowgroup">
-    <tr role="row">
-        <th role="columnheader" scope="col">IP地址</th>
-        <th role="columnheader" scope="col">已发送</th>
-        <th role="columnheader" scope="col">已接收</th>
-        <th role="columnheader" scope="col">丢包率</th>
-        <th role="columnheader" scope="col">平均延迟</th>
-        <th role="columnheader" scope="col">下载速度</th>
-        <th role="columnheader" scope="col">测速时间</th>
+<table>
+    <thead>
+    <tr>
+        <th>IP地址</th>
+        <th>已发送</th>
+        <th>已接收</th>
+        <th>丢包率</th>
+        <th>平均延迟</th>
+        <th>下载速度</th>
+        <th>测速时间</th>
     </tr>
     </thead>
-    <tbody role="rowgroup">
-    <tr role="row">
-        <td class="recommended" role="cell">
+    <tbody>
+    <tr>
+        <td class="recommended">
             <span class="highlight-icon">★</span>
             <a href="https://zh-hans.ipshu.com/ipv4/172.64.229.128" target="_blank">172.64.229.128</a>
-            <button type="button" class="copy-btn" onclick="copyIP('172.64.229.128')" aria-label="复制 IP 172.64.229.128">复制</button>
+            <span class="copy-btn" onclick="copyIP('172.64.229.128')" title="点击复制">复制</span>
         </td>
-        <td role="cell"><span class="mobile-label" aria-hidden="true">已发送</span>4</td>
-        <td role="cell"><span class="mobile-label" aria-hidden="true">已接收</span>4</td>
-        <td role="cell"><span class="mobile-label" aria-hidden="true">丢包率</span>0.00%</td>
-        <td role="cell"><span class="mobile-label" aria-hidden="true">平均延迟</span>101.45</td>
-        <td class="speed" role="cell">48.44MB/s</td>
-        <td class="measured-at" role="cell"><span class="mobile-label" aria-hidden="true">测速时间</span>2026-11-13 00:07:26</td>
+        <td>4</td>
+        <td>4</td>
+        <td>0.00%</td>
+        <td>101.45</td>
+        <td style="color: green; font-weight: bold;">48.44MB/s</td>
+        <td>2026-11-13 00:07:26</td>
     </tr>
-    <tr role="row">
-        <td class="recommended" role="cell">
+    <tr>
+        <td class="recommended">
             <span class="highlight-icon">★</span>
             <a href="https://zh-hans.ipshu.com/ipv4/172.64.229.241" target="_blank">172.64.229.241</a>
-            <button type="button" class="copy-btn" onclick="copyIP('172.64.229.241')" aria-label="复制 IP 172.64.229.241">复制</button>
+            <span class="copy-btn" onclick="copyIP('172.64.229.241')" title="点击复制">复制</span>
         </td>
-        <td role="cell"><span class="mobile-label" aria-hidden="true">已发送</span>4</td>
-        <td role="cell"><span class="mobile-label" aria-hidden="true">已接收</span>4</td>
-        <td role="cell"><span class="mobile-label" aria-hidden="true">丢包率</span>0.00%</td>
-        <td role="cell"><span class="mobile-label" aria-hidden="true">平均延迟</span>65.16</td>
-        <td class="speed" role="cell">25.64MB/s</td>
-        <td class="measured-at" role="cell"><span class="mobile-label" aria-hidden="true">测速时间</span>2026-11-13 00:07:26</td>
+        <td>4</td>
+        <td>4</td>
+        <td>0.00%</td>
+        <td>65.16</td>
+        <td style="color: green; font-weight: bold;">25.64MB/s</td>
+        <td>2026-11-13 00:07:26</td>
     </tr>
     </tbody>
 </table>
