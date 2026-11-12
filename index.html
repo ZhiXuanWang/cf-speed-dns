@@ -16,79 +16,113 @@
         td a:hover { text-decoration: underline; }
         .highlight-icon { font-size: 20px; color: #1E9FFF; vertical-align: middle; }
         .recommended { font-weight: bold; color: #FF5722; }
-        .copy-btn { cursor: pointer; margin-left: 8px; color: #1E9FFF; font-size: 12px; }
+        .copy-btn { cursor: pointer; margin-left: 8px; padding: 0; border: 0; background: none; color: #1E9FFF; font: inherit; font-size: 12px; }
         .copy-btn:hover { text-decoration: underline; }
+        .speed { color: green; font-weight: bold; }
+        .mobile-label { display: none; }
+
+        @media (max-width: 640px) {
+            .centered-div { padding: 12px 12px 4px; line-height: 1.5; }
+            .github-star { display: block; margin: 8px auto 0; max-width: 100%; }
+            table { display: block; width: auto; margin: 10px 12px 16px; border: 0; background: transparent; }
+            thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+            tbody { display: block; }
+            tbody tr {
+                display: grid;
+                grid-template-columns: repeat(12, minmax(0, 1fr));
+                margin-bottom: 8px;
+                border: 1px solid #ddd;
+                background: #fff;
+            }
+            tbody td { display: block; grid-column: span 3; min-width: 0; padding: 7px 4px; border: 0; font-size: 14px; }
+            .recommended, .speed {
+                display: flex;
+                grid-row: 1;
+                align-items: center;
+                padding: 4px 8px;
+                border-bottom: 1px solid #ddd;
+                background: #f8f8f8;
+                white-space: nowrap;
+            }
+            .recommended { grid-column: 1 / span 8; gap: 4px; }
+            .speed { grid-column: 9 / -1; justify-content: flex-end; }
+            .highlight-icon { flex: none; color: #1E9FFF; font-size: 16px; line-height: 1; }
+            .copy-btn { min-height: 32px; margin-left: 0; padding: 0 4px; white-space: nowrap; }
+            .mobile-label { display: block; margin-bottom: 2px; color: #595959; font-size: 12px; }
+            .measured-at { grid-column: 1 / -1; border-top: 1px solid #eee; color: #595959; font-size: 12px; }
+            .measured-at .mobile-label { display: inline; margin-right: 4px; }
+        }
     </style>
 </head>
 <body>
 <div class="centered-div">
     Cloudflare优选IP测速数据<br>
     CF优选IP工具，动态获取Cloudflare优选IP，CloudflareSpeedTest测速。
-    <iframe src="https://ghbtns.com/github-btn.html?user=zhixuanwang&repo=cf-speed-dns&type=star&count=true"
-            frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+    <iframe class="github-star" src="https://ghbtns.com/github-btn.html?user=zhixuanwang&amp;repo=cf-speed-dns&amp;type=star&amp;count=true"
+            frameborder="0" scrolling="0" width="150" height="20" title="在 GitHub 为 cf-speed-dns 加星"></iframe>
 </div>
-<table>
-    <thead>
-    <tr>
-        <th>IP地址</th>
-        <th>已发送</th>
-        <th>已接收</th>
-        <th>丢包率</th>
-        <th>平均延迟</th>
-        <th>下载速度</th>
-        <th>测速时间</th>
+<table role="table">
+    <thead role="rowgroup">
+    <tr role="row">
+        <th role="columnheader" scope="col">IP地址</th>
+        <th role="columnheader" scope="col">已发送</th>
+        <th role="columnheader" scope="col">已接收</th>
+        <th role="columnheader" scope="col">丢包率</th>
+        <th role="columnheader" scope="col">平均延迟</th>
+        <th role="columnheader" scope="col">下载速度</th>
+        <th role="columnheader" scope="col">测速时间</th>
     </tr>
     </thead>
-    <tbody>
-    <tr>
-        <td class="recommended">
+    <tbody role="rowgroup">
+    <tr role="row">
+        <td class="recommended" role="cell">
             <span class="highlight-icon">★</span>
             <a href="https://zh-hans.ipshu.com/ipv4/172.64.229.67" target="_blank">172.64.229.67</a>
-            <span class="copy-btn" onclick="copyIP('172.64.229.67')" title="点击复制">复制</span>
+            <button type="button" class="copy-btn" onclick="copyIP('172.64.229.67')" aria-label="复制 IP 172.64.229.67">复制</button>
         </td>
-        <td>4</td>
-        <td>4</td>
-        <td>0.00%</td>
-        <td>50.74</td>
-        <td style="color: green; font-weight: bold;">75.46MB/s</td>
-        <td>2026-11-12 22:07:21</td>
+        <td role="cell"><span class="mobile-label" aria-hidden="true">已发送</span>4</td>
+        <td role="cell"><span class="mobile-label" aria-hidden="true">已接收</span>4</td>
+        <td role="cell"><span class="mobile-label" aria-hidden="true">丢包率</span>0.00%</td>
+        <td role="cell"><span class="mobile-label" aria-hidden="true">平均延迟</span>50.74</td>
+        <td class="speed" role="cell">75.46MB/s</td>
+        <td class="measured-at" role="cell"><span class="mobile-label" aria-hidden="true">测速时间</span>2026-11-12 22:07:21</td>
     </tr>
-    <tr>
-        <td class="recommended">
+    <tr role="row">
+        <td class="recommended" role="cell">
             <span class="highlight-icon">★</span>
             <a href="https://zh-hans.ipshu.com/ipv4/172.64.229.125" target="_blank">172.64.229.125</a>
-            <span class="copy-btn" onclick="copyIP('172.64.229.125')" title="点击复制">复制</span>
+            <button type="button" class="copy-btn" onclick="copyIP('172.64.229.125')" aria-label="复制 IP 172.64.229.125">复制</button>
         </td>
-        <td>4</td>
-        <td>4</td>
-        <td>0.00%</td>
-        <td>82.06</td>
-        <td style="color: green; font-weight: bold;">62.09MB/s</td>
-        <td>2026-11-12 22:07:21</td>
+        <td role="cell"><span class="mobile-label" aria-hidden="true">已发送</span>4</td>
+        <td role="cell"><span class="mobile-label" aria-hidden="true">已接收</span>4</td>
+        <td role="cell"><span class="mobile-label" aria-hidden="true">丢包率</span>0.00%</td>
+        <td role="cell"><span class="mobile-label" aria-hidden="true">平均延迟</span>82.06</td>
+        <td class="speed" role="cell">62.09MB/s</td>
+        <td class="measured-at" role="cell"><span class="mobile-label" aria-hidden="true">测速时间</span>2026-11-12 22:07:21</td>
     </tr>
-    <tr>
-        <td class="recommended">
+    <tr role="row">
+        <td class="recommended" role="cell">
             <a href="https://zh-hans.ipshu.com/ipv4/172.64.229.249" target="_blank">172.64.229.249</a>
-            <span class="copy-btn" onclick="copyIP('172.64.229.249')" title="点击复制">复制</span>
+            <button type="button" class="copy-btn" onclick="copyIP('172.64.229.249')" aria-label="复制 IP 172.64.229.249">复制</button>
         </td>
-        <td>4</td>
-        <td>3</td>
-        <td>25.00%</td>
-        <td>45.47</td>
-        <td style="color: green; font-weight: bold;">33.76MB/s</td>
-        <td>2026-11-12 22:07:21</td>
+        <td role="cell"><span class="mobile-label" aria-hidden="true">已发送</span>4</td>
+        <td role="cell"><span class="mobile-label" aria-hidden="true">已接收</span>3</td>
+        <td role="cell"><span class="mobile-label" aria-hidden="true">丢包率</span>25.00%</td>
+        <td role="cell"><span class="mobile-label" aria-hidden="true">平均延迟</span>45.47</td>
+        <td class="speed" role="cell">33.76MB/s</td>
+        <td class="measured-at" role="cell"><span class="mobile-label" aria-hidden="true">测速时间</span>2026-11-12 22:07:21</td>
     </tr>
-    <tr>
-        <td class="recommended">
+    <tr role="row">
+        <td class="recommended" role="cell">
             <a href="https://zh-hans.ipshu.com/ipv4/172.64.229.0" target="_blank">172.64.229.0</a>
-            <span class="copy-btn" onclick="copyIP('172.64.229.0')" title="点击复制">复制</span>
+            <button type="button" class="copy-btn" onclick="copyIP('172.64.229.0')" aria-label="复制 IP 172.64.229.0">复制</button>
         </td>
-        <td>4</td>
-        <td>2</td>
-        <td>50.00%</td>
-        <td>58.80</td>
-        <td style="color: green; font-weight: bold;">20.54MB/s</td>
-        <td>2026-11-12 22:07:21</td>
+        <td role="cell"><span class="mobile-label" aria-hidden="true">已发送</span>4</td>
+        <td role="cell"><span class="mobile-label" aria-hidden="true">已接收</span>2</td>
+        <td role="cell"><span class="mobile-label" aria-hidden="true">丢包率</span>50.00%</td>
+        <td role="cell"><span class="mobile-label" aria-hidden="true">平均延迟</span>58.80</td>
+        <td class="speed" role="cell">20.54MB/s</td>
+        <td class="measured-at" role="cell"><span class="mobile-label" aria-hidden="true">测速时间</span>2026-11-12 22:07:21</td>
     </tr>
     </tbody>
 </table>
